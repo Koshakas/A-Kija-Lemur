@@ -8,11 +8,19 @@ const Book = () => {
     const [book] = books.masterBooks.filter(b => b.id === parseInt(id));
 
     if (typeof book === "undefined") {
-        return <h2>Palaukite, knyga kraunama</h2>;
-    }
-
-    if (books.masterBooks.length === 0) {
-        return <div>Knyga nerasta</div>;
+        if (books.masterBooks.length === 0) {
+            return (
+                <div className="books__book">
+                    <h2>Palaukite, knyga siunčiama</h2>
+                </div>
+            );
+        } else {
+            return (
+                <div className="books__book">
+                    <h2>Tokios knygos nėra</h2>
+                </div>
+            );
+        }
     }
 
     return (
